@@ -1,3 +1,5 @@
+'use strict';
+
 class TreeNode {
   constructor(value) {
     this.value = value;
@@ -15,7 +17,10 @@ class BinarySearchTree {
   // the root of the tree. Returns false if there are
   // any nodes in the tree.
   isEmpty() {
-
+    if(this.root === null){
+      return true;
+    }
+    else return false;
   }
 
   // returns an array of all elements in the tree using
@@ -101,4 +106,4 @@ class BinarySearchTree {
 module.exports = {
   TreeNode,
   BinarySearchTree,
-}
+};
