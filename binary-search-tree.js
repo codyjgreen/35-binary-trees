@@ -49,8 +49,20 @@ class BinarySearchTree {
   // and return true if the value is found in the tree,
   // otherwise return false.
   contains(value) {
-
+    this._contains(this.root);
   }
+  _contains(node){
+    if(!node){
+      return;
+    }
+    _contains(node.left);
+    _contains(node.right);
+  }
+
+
+
+
+  
 
   // add the given value at an appropriate place in the binary search tree.
   // the first value is always attached manually to the root. all following
@@ -59,6 +71,7 @@ class BinarySearchTree {
   add(value) {
 
   }
+  
 
   // traverse two trees simultaneously.
   // return true if they contain the same values in the same place.

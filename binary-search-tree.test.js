@@ -50,7 +50,7 @@ describe('Binary Search Tree', () => {
   });
 
   describe('add()', () => {
-    test.skip('non-empty tree isn\'t empty', () => {
+    test('non-empty tree isn\'t empty', () => {
       let tree = new BinarySearchTree();
       expect(tree.isEmpty()).toBe(true);
 
