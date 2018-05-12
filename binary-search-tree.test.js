@@ -24,7 +24,7 @@ describe('Binary Search Tree', () => {
   });
 
   describe('contains()', () => {
-    test.skip('empty tree never has anything', () => {
+    test('empty tree never has anything', () => {
       expect(emptyTree().contains(0)).toBe(false);
       expect(emptyTree().contains(2)).toBe(false);
       expect(emptyTree().contains(3)).toBe(false);
@@ -50,7 +50,7 @@ describe('Binary Search Tree', () => {
   });
 
   describe('add()', () => {
-    test('non-empty tree isn\'t empty', () => {
+    test.skip('non-empty tree isn\'t empty', () => {
       let tree = new BinarySearchTree();
       expect(tree.isEmpty()).toBe(true);
 

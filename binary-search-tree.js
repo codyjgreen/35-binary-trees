@@ -49,14 +49,16 @@ class BinarySearchTree {
   // and return true if the value is found in the tree,
   // otherwise return false.
   contains(value) {
-    this._contains(this.root);
+    this._contains(value, this.root);
   }
-  _contains(node){
-    if(!node){
-      return;
+  _contains(value,node){
+    if(node === null){
+      return false;
     }
-    _contains(node.left);
-    _contains(node.right);
+    if(node.value === value){
+      return true;
+    }
+    return this._contains(value, node.left) || this._contains(value, node.right);
   }
 
 
