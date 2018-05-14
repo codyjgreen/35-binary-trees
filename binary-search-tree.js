@@ -1,3 +1,5 @@
+'use strict';
+
 class TreeNode {
   constructor(value) {
     this.value = value;
@@ -15,7 +17,10 @@ class BinarySearchTree {
   // the root of the tree. Returns false if there are
   // any nodes in the tree.
   isEmpty() {
-
+    if(this.root === null) {
+      return true;
+    }
+    return false;
   }
 
   // returns an array of all elements in the tree using
@@ -44,7 +49,16 @@ class BinarySearchTree {
   // and return true if the value is found in the tree,
   // otherwise return false.
   contains(value) {
-
+    return this._contains(value, this.root);
+  }
+  _contains(value, node) {
+    if(node === null) {
+      return false;
+    }
+    if(node.value === value) {
+      return true;
+    }
+    return this._contains(value, node.left) || this._contains(value, node.right);
   }
 
   // add the given value at an appropriate place in the binary search tree.
@@ -52,7 +66,25 @@ class BinarySearchTree {
   // values are added toward the left if they're less than the value at a node,
   // or toward the right if the value is greater than the current node.
   add(value) {
+    if(this.root === null) {
+      this.root = new TreeNode(value);
+      return;
+    }
+    this._add(value, this.root);
+  }
 
+  _add(value, node) {
+    if(value < node.value) {
+      if(node.left === null) {
+        return node.left = new TreeNode(value);
+      }
+      this._add(value, node.left);
+    } else if (value > node.value) {
+      if(node.right === null) {
+        return node.right = new TreeNode(value);
+      }
+      this._add(value, node.right);
+    }
   }
 
   // traverse two trees simultaneously.
@@ -101,4 +133,4 @@ class BinarySearchTree {
 module.exports = {
   TreeNode,
   BinarySearchTree,
-}
+};
